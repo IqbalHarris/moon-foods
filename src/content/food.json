@@ -1,0 +1,10 @@
+{
+  "categories": [
+    { "name": "Samosas", "description": "Golden folds. A warmly spiced middle.", "image": "", "imageAlt": "", "squareUrl": "", "featured": true, "order": 10 },
+    { "name": "Burgers", "description": "Big bites with a little extra personality.", "image": "", "imageAlt": "", "squareUrl": "", "featured": false, "order": 20 },
+    { "name": "Curries", "description": "Comfort with colour, warmth and depth.", "image": "", "imageAlt": "", "squareUrl": "", "featured": true, "order": 30 },
+    { "name": "Street food", "description": "Little plates with plenty to say.", "image": "", "imageAlt": "", "squareUrl": "", "featured": true, "order": 40 },
+    { "name": "Desserts", "description": "Save a little room for the sweet part.", "image": "", "imageAlt": "", "squareUrl": "", "featured": false, "order": 50 },
+    { "name": "Drinks", "description": "A refreshing finish to a flavourful bite.", "image": "", "imageAlt": "", "squareUrl": "", "featured": false, "order": 60 }
+  ]
+}

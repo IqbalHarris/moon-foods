@@ -1,0 +1,167 @@
+media:
+  input: src/assets/uploads
+  output: /src/assets/uploads
+  rename: safe
+  extensions: [png, jpg, jpeg, webp, avif, svg]
+content:
+  - name: business
+    label: Business settings
+    type: file
+    path: src/content/business.json
+    format: json
+    fields:
+      - { name: name, label: Business name, type: string, required: true }
+      - { name: logo, label: Logo (transparent PNG or SVG), type: image }
+      - { name: logoAlt, label: Logo description, type: string }
+      - name: squareUrl
+        label: Square ordering URL
+        type: string
+        required: true
+        description: "Paste the complete https:// address. Leave [SQUARE_ORDERING_URL] until available."
+      - { name: phone, label: Phone number, type: string }
+      - { name: email, label: Email address, type: string }
+      - name: socialLinks
+        label: Social links
+        type: object
+        list: true
+        fields:
+          - {
+              name: label,
+              label: Name (for example Instagram),
+              type: string,
+              required: true,
+            }
+          - { name: url, label: Full HTTPS link, type: string, required: true }
+      - { name: openingHours, label: Opening hours, type: text }
+      - { name: pickupInfo, label: Pickup information, type: text }
+      - { name: deliveryInfo, label: Delivery information, type: text }
+      - {
+          name: locationText,
+          label: Business or food-truck location,
+          type: text,
+        }
+      - { name: footerText, label: Footer text, type: text }
+      - {
+          name: pageTitle,
+          label: Browser and search title,
+          type: string,
+          required: true,
+        }
+      - {
+          name: description,
+          label: Search description,
+          type: text,
+          required: true,
+        }
+      - {
+          name: socialImage,
+          label: Supplied social sharing image (optional),
+          type: image,
+        }
+      - name: draftNotice
+        label: Preview notice
+        type: text
+        description: Clear after confirming all business copy. A non-empty notice keeps search indexing disabled.
+  - name: homepage
+    label: Homepage sections
+    type: file
+    path: src/content/homepage.json
+    format: json
+    fields:
+      - name: sections
+        label: Sections
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Unique section ID
+            type: string
+            required: true
+            description: "Use lowercase letters and hyphens, for example our-story. Keep existing IDs to preserve links."
+          - {
+              name: enabled,
+              label: Show this section,
+              type: boolean,
+              default: true,
+            }
+          - name: order
+            label: Display order
+            type: number
+            required: true
+            description: "Lower numbers appear first. Use 10, 20, 30 to leave space for new sections. This overrides list position."
+          - name: type
+            label: Section style
+            type: select
+            required: true
+            options:
+              values:
+                [
+                  hero,
+                  intro,
+                  categories,
+                  featured,
+                  story,
+                  service,
+                  location,
+                  cta,
+                ]
+          - { name: label, label: Small introductory label, type: string }
+          - {
+              name: heading,
+              label: Heading (new lines allowed),
+              type: text,
+              required: true,
+            }
+          - { name: body, label: Body copy, type: text }
+          - { name: image, label: Optional image, type: image }
+          - {
+              name: imageAlt,
+              label: Accessible image description (required with image),
+              type: string,
+            }
+          - { name: buttonLabel, label: Optional button label, type: string }
+          - name: buttonUrl
+            label: Optional button destination
+            type: string
+            description: "Use square for the global ordering URL, #section-id to scroll, or a full https:// link."
+          - name: theme
+            label: Colour variation
+            type: select
+            required: true
+            options:
+              values: [navy, gold, blue]
+  - name: food
+    label: Food categories
+    type: file
+    path: src/content/food.json
+    format: json
+    fields:
+      - name: categories
+        label: Food types (promotional categories, not a separate menu)
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Category name, type: string, required: true }
+          - { name: description, label: Short description, type: text }
+          - { name: image, label: Optional food image, type: image }
+          - {
+              name: imageAlt,
+              label: Accessible image description (required with image),
+              type: string,
+            }
+          - {
+              name: squareUrl,
+              label: Optional direct Square ordering URL,
+              type: string,
+            }
+          - {
+              name: featured,
+              label: Include in featured sections,
+              type: boolean,
+              default: false,
+            }
+          - name: order
+            label: Display order
+            type: number
+            required: true
+            description: Lower numbers appear first. This overrides list position.

@@ -1,0 +1,45 @@
+---
+interface Props { animated?: boolean; }
+const { animated = false } = Astro.props;
+---
+<div class:list={['food-scene', { 'animated-scene': animated }]} aria-hidden="true">
+  <svg viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="350" cy="350" r="298" stroke="#8fa5ac" stroke-opacity=".17" stroke-dasharray="2 11"/>
+    <circle cx="350" cy="350" r="259" stroke="#8fa5ac" stroke-opacity=".12"/>
+    <g class="moon-frame">
+      <path d="M430 68C262 72 151 241 191 404c40 160 215 236 358 151C451 675 241 645 139 502 24 341 130 113 319 73c40-9 76-9 111-5Z" fill="#fbbc2a"/>
+      <path d="M150 479C68 314 172 124 327 88" stroke="#ffdb72" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g class="orbit-spice">
+      <path d="m561 147 7 18 18 7-18 7-7 18-7-18-18-7 18-7Z" fill="#ffc53e"/>
+      <path d="m130 232 4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#ffc53e"/>
+      <circle cx="568" cy="466" r="5" fill="#e95b38"/>
+      <path d="m535 245 11-8m-6 17 10-2" stroke="#ef9f29" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <ellipse class="food-shadow" cx="361" cy="551" rx="166" ry="22" fill="#000" opacity=".18"/>
+    <g class="filling">
+      <path d="M254 435c4-25 30-56 57-47 16-38 51-45 75-17 30-10 60 9 57 39 35 10 46 40 27 60H252Z" fill="#b87622"/>
+      <path d="m265 426 25-25 31 9-2 34-30 12Z" fill="#efc664"/><path d="m345 400 24-26 30 16-1 30-31 10Z" fill="#ffce72"/><path d="m390 444 23-26 30 16-1 30-31 10Z" fill="#e6ad42"/>
+      <circle cx="329" cy="426" r="14" fill="#749950"/><circle cx="407" cy="405" r="11" fill="#82a458"/><circle cx="353" cy="460" r="13" fill="#8aad5d"/>
+      <path d="m322 381 8-6m47 56 8-5m-86 36 8-7" stroke="#553b24" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <g class="ingredient ingredient-1"><path d="m244 260 28-15 23 20-12 30-30-6Z" fill="#f5cb73"/><path d="m248 261 16 10 26-4" stroke="#ffe3a6" stroke-width="3"/></g>
+    <g class="ingredient ingredient-2"><circle cx="463" cy="295" r="15" fill="#81a75b"/><path d="M455 292c0-4 4-6 7-6" stroke="#bbd78c" stroke-width="3" stroke-linecap="round"/></g>
+    <g class="ingredient ingredient-3"><path d="M467 173c-40-10-60 11-54 38 22 11 54-11 54-38Z" fill="#448867"/><path d="m417 207 37-26" stroke="#9db66c" stroke-width="2"/></g>
+    <g class="ingredient ingredient-4"><path d="M516 377c-15 5-15 21-1 31 19-11 17-26 1-31Z" fill="#a8bd64"/></g>
+    <g class="ingredient ingredient-5"><path d="m203 400 11-7m-6 18 13-3m-12-27 8-8" stroke="#dd6b34" stroke-width="5" stroke-linecap="round"/></g>
+    <g class="pastry-back"><path d="m228 491 129-251c6-13 16-13 23 0l125 250c-83 28-176 31-277 1Z" fill="#e8a93c" stroke="#a75d1d" stroke-width="5" stroke-linejoin="round"/><path d="m259 472 110-205 104 203" stroke="#ffdd7b" stroke-width="4" stroke-linejoin="round"/></g>
+    <g class="pastry-left"><path d="M225 491c60-65 102-151 138-249-7 106-4 202 12 294-57-3-106-17-150-45Z" fill="#ffd071" stroke="#bb7421" stroke-width="5" stroke-linejoin="round"/><path d="M246 490c40-48 76-111 101-170-7 76-5 138 5 194" stroke="#ffe5a2" stroke-width="4" stroke-linecap="round"/></g>
+    <g class="pastry-right"><path d="M367 241c40 99 80 178 138 250-40 25-83 40-130 45-17-106-18-205-8-295Z" fill="#f4b644" stroke="#ba7222" stroke-width="5" stroke-linejoin="round"/><path d="M384 300c26 80 58 137 100 185-28 16-58 27-91 32" stroke="#ffe5a0" stroke-width="4" stroke-linecap="round"/></g>
+    <g class="crisp"><path d="M225 491c84 50 172 62 280 0-4 27-70 62-134 61-64-1-133-33-146-61Z" fill="#df891e" stroke="#9d591b" stroke-width="5"/><path d="M237 505c78 38 167 48 256 0" stroke="#faca58" stroke-width="4"/>
+      <path d="m298 427 5-8m-26 63 5-8m46-96 4-8m-12 111 3-8m94-70 5 6m19 61 5 7m-39-121 3 7m-47 141 2 5m74-13 4 6" stroke="#b97227" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="296" cy="465" r="4" fill="#ffe29a"/><circle cx="389" cy="419" r="4" fill="#ffe29a"/><circle cx="453" cy="481" r="3" fill="#ffe29a"/>
+    </g>
+    <g class="steam" stroke="#ffe1a0" stroke-width="7" stroke-linecap="round" opacity=".8"><path d="M340 208c-28-33 20-39 1-74"/><path d="M375 192c-28-33 20-39 1-74"/><path d="M407 215c-28-33 20-39 1-74"/></g>
+    <g class="chutney"><path d="M461 498h108c-7 47-27 64-54 64-28 0-48-19-54-64Z" fill="#123c50" stroke="#7a999c" stroke-width="3"/><ellipse cx="515" cy="497" rx="54" ry="17" fill="#092636" stroke="#8fa0a0" stroke-width="3"/><ellipse cx="515" cy="498" rx="43" ry="11" fill="#db4931"/><path d="M491 496c14-4 27-4 42 0" stroke="#f77946" stroke-width="3" stroke-linecap="round"/><path d="M523 470c5-23 24-31 40-28-5 23-20 34-40 28Z" fill="#58945e"/><path d="M521 471c-17-7-20-18-15-29 16 4 24 16 15 29Z" fill="#83ae6e"/></g>
+    <g class="chilli"><path d="M561 314c-5 55-36 81-80 78 29 31 93 6 98-55 1-17-5-27-18-23Z" fill="#df4431"/><path d="M567 324c-3 28-11 45-29 57" stroke="#ffae84" stroke-width="4" stroke-linecap="round"/><path d="M570 317c-1-19 5-26 14-31" stroke="#58945e" stroke-width="9" stroke-linecap="round"/></g>
+  </svg>
+  <span class="scene-note note-top">A little heat.<br/>A whole lot of heart.</span>
+  <span class="scene-note note-bottom">THE MAKING OF A GOOD BITE</span>
+  {animated && <div class="scene-progress"><span></span></div>}
+</div>

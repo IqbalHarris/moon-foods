@@ -1,0 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import { mediaImage } from '../lib/media';
+interface Props { src: string; alt: string; width: number; height?: number; sizes?: string; class?: string; loading?: 'eager' | 'lazy'; }
+const { src, alt, width, height, sizes = `(max-width: 767px) 90vw, ${width}px`, class: className, loading = 'lazy' } = Astro.props;
+const image = mediaImage(src);
+---
+<Image src={image} alt={alt} width={width} height={height} widths={image.format === 'svg' ? undefined : [width, width * 2]} sizes={sizes} format={image.format === 'svg' ? undefined : 'webp'} quality={85} class={className} loading={loading} decoding="async" />

@@ -1,0 +1,76 @@
+---
+import '@fontsource/fraunces/latin-600.css';
+import '@fontsource/dm-sans/latin-400.css';
+import '@fontsource/dm-sans/latin-500.css';
+import '@fontsource/dm-sans/latin-700.css';
+import '../styles/global.css';
+import business from '../content/business.json';
+import homepage from '../content/homepage.json';
+import { visibleSections, localUrl, isSquareReady } from '../lib/content.mjs';
+import FoodScene from '../components/FoodScene.astro';
+import Section from '../components/Section.astro';
+import Media from '../components/Media.astro';
+import { getImage } from 'astro:assets';
+import { mediaImage } from '../lib/media';
+const sections = visibleSections(homepage.sections);
+const ready = isSquareReady(business.squareUrl);
+const orderUrl = ready ? business.squareUrl : '#ordering';
+const foodAnchor = sections.find(s=>s.type === 'intro' || s.type === 'categories')?.id;
+const storyAnchor = sections.find(s=>s.type === 'story')?.id;
+const locationAnchor = sections.find(s=>s.type === 'location')?.id;
+const base = import.meta.env.BASE_URL;
+const canonical = new URL(base, Astro.site);
+const socialAsset = business.socialImage ? await getImage({ src: mediaImage(business.socialImage), width: 1000, format: 'png' }) : undefined;
+const socialImage = socialAsset ? new URL(socialAsset.src, Astro.site).href : undefined;
+---
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#081c2b" />
+    <title>{business.pageTitle}</title><meta name="description" content={business.description} />
+    <link rel="canonical" href={canonical} /><link rel="icon" type="image/svg+xml" href={localUrl('/favicon.svg', base)} />
+    <meta property="og:type" content="website" /><meta property="og:locale" content="en_US" /><meta property="og:site_name" content={business.name} /><meta property="og:title" content={business.pageTitle} /><meta property="og:description" content={business.description} /><meta property="og:url" content={canonical} />
+    {socialImage && <><meta property="og:image" content={socialImage} /><meta property="og:image:alt" content={`${business.name} brand image`} /></>}
+    <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
+    {business.draftNotice && <meta name="robots" content="noindex, nofollow" />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href={base} aria-label={`${business.name} home`}>
+        {business.logo && <span class="logo-frame"><Media src={business.logo} alt={business.logoAlt} width={132} sizes="66px" loading="eager" /></span>}<span class="wordmark">{business.name}<span class="brand-dot" aria-hidden="true">✦</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">{foodAnchor && <a href={`#${foodAnchor}`}>The food</a>}{storyAnchor && <a href={`#${storyAnchor}`}>Our story</a>}{locationAnchor && <a href={`#${locationAnchor}`}>Find us</a>}</nav>
+      <a class="button header-order" href={orderUrl} data-order="true">Order Now <span aria-hidden="true">↗</span></a>
+      <details class="mobile-nav"><summary aria-label="Open navigation">Menu <span aria-hidden="true">+</span></summary><nav aria-label="Mobile navigation">{foodAnchor && <a href={`#${foodAnchor}`}>The food</a>}{storyAnchor && <a href={`#${storyAnchor}`}>Our story</a>}{locationAnchor && <a href={`#${locationAnchor}`}>Find us</a>}</nav></details>
+    </header>
+    <main id="main">
+      <div class="journey">
+        <aside class="scene-column"><FoodScene animated /></aside>
+        <div class="story-sections">
+          {sections.map((section, i)=><><Section section={section} first={i === 0} foodAnchor={foodAnchor} />{i === 0 && <div class="mobile-scene"><FoodScene /></div>}</>)}
+          {sections.length === 0 && <section class="story-section"><h1>{business.name}</h1><a class="button" href={orderUrl} data-order="true">Order Now ↗</a></section>}
+        </div>
+      </div>
+      {!ready && <section id="ordering" class="ordering-notice" tabindex="-1" aria-labelledby="ordering-title"><span aria-hidden="true">✦</span><div><h2 id="ordering-title">Ordering link coming soon.</h2><p>Online ordering isn’t connected yet. Please check back for the live Square menu.</p>{business.phone && <a href={`tel:${business.phone.replace(/[^+\d]/g, '')}`}>Call {business.phone}</a>}</div></section>}
+    </main>
+    <footer class="site-footer"><div><a href={base} class="footer-brand">{business.name}<span aria-hidden="true">✦</span></a><p>{business.footerText}</p></div><div class="footer-links">{business.email && <a href={`mailto:${business.email}`}>{business.email}</a>}{business.phone && <a href={`tel:${business.phone.replace(/[^+\d]/g, '')}`}>{business.phone}</a>}{business.socialLinks.map((link: {label:string;url:string})=><a href={link.url}>{link.label} ↗</a>)}{!business.email && !business.phone && business.socialLinks.length === 0 && <span>Contact & social links coming soon.</span>}</div><div class="footer-bottom"><span>© {new Date().getFullYear()} {business.name}</span><a href="#main">Back to top ↑</a></div>{business.draftNotice && <p class="draft-notice">{business.draftNotice}</p>}</footer>
+    <div class="mobile-order"><a class="button" href={orderUrl} data-order="true">Order Now <span aria-hidden="true">↗</span></a></div>
+    <script>
+      const nav = document.querySelector<HTMLDetailsElement>('.mobile-nav');
+      nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.open = false; }));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav?.open) { nav.open = false; nav.querySelector('summary')?.focus(); } });
+      const media = window.matchMedia('(min-width: 768px) and (prefers-reduced-motion: no-preference)');
+      const device = navigator as Navigator & { deviceMemory?: number; connection?: { saveData?: boolean } };
+      let requested = false;
+      const enhance = () => {
+        if (requested || !media.matches || device.connection?.saveData || (device.deviceMemory ?? 8) <= 2 || (device.hardwareConcurrency ?? 8) <= 2) return;
+        requested = true;
+        import('../scripts/animation').then(({ mountAnimation }) => mountAnimation()).catch(() => { requested = false; });
+      };
+      enhance();
+      media.addEventListener('change', enhance);
+    </script>
+  </body>
+</html>

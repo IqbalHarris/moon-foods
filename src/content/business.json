@@ -1,0 +1,18 @@
+{
+  "name": "Moon Foods",
+  "logo": "/src/assets/uploads/logo.png",
+  "logoAlt": "Moon Foods — gold crescent and red chilli",
+  "squareUrl": "[SQUARE_ORDERING_URL]",
+  "phone": "",
+  "email": "",
+  "socialLinks": [],
+  "openingHours": "[Opening hours to be confirmed]",
+  "pickupInfo": "[Pickup address and collection instructions to be confirmed]",
+  "deliveryInfo": "[Delivery area and availability to be confirmed]",
+  "locationText": "[Food-truck stops or business location to be confirmed]",
+  "footerText": "A little moon. A lot of flavour.",
+  "pageTitle": "Moon Foods | Big flavour. A little moon magic.",
+  "description": "Meet Moon Foods. South Asian-inspired flavour, golden bites and a little heat. Explore our food and order through Square.",
+  "socialImage": "/src/assets/uploads/logo.png",
+  "draftNotice": "Preview • Sample food descriptions and business details await confirmation."
+}
