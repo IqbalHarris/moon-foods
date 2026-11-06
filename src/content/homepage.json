@@ -1,52 +1,94 @@
 {
   "sections": [
     {
-      "id": "welcome", "enabled": true, "order": 10, "type": "hero", "label": "South Asian soul. Moon Foods energy.",
+      "id": "welcome",
+      "enabled": true,
+      "order": 10,
+      "type": "hero",
+      "label": "Big Flavour in Small Bites",
       "heading": "Big flavour.\nA little\nmoon magic.",
       "body": "Golden bites, warming spices and just the right kick. Find your next craving at Moon Foods.",
-      "image": "", "imageAlt": "", "buttonLabel": "Order Now", "buttonUrl": "square", "theme": "navy"
+      "buttonLabel": "Order Now",
+      "buttonUrl": "square",
+      "theme": "navy"
     },
     {
-      "id": "food", "enabled": true, "order": 20, "type": "intro", "label": "01 / It starts with a little spice",
+      "id": "food",
+      "enabled": true,
+      "order": 20,
+      "type": "intro",
+      "label": "01 / It starts with a little spice",
       "heading": "Small bite.\nBig personality.",
       "body": "A whisper of spice. A little warmth. That first golden crunch. This is the kind of food you slow down for—even when you’re taking it to go.",
-      "image": "", "imageAlt": "", "buttonLabel": "", "buttonUrl": "", "theme": "navy"
+      "theme": "navy"
     },
     {
-      "id": "food-types", "enabled": true, "order": 30, "type": "categories", "label": "02 / Follow your craving",
+      "id": "food-types",
+      "enabled": true,
+      "order": 30,
+      "type": "categories",
+      "label": "02 / Follow your craving",
       "heading": "Something for\nevery mood.",
       "body": "A taste of what’s to come. Explore the live Square menu for confirmed dishes and availability.",
-      "image": "", "imageAlt": "", "buttonLabel": "Explore the menu", "buttonUrl": "square", "theme": "navy"
+      "buttonLabel": "Explore the menu",
+      "buttonUrl": "square",
+      "theme": "navy"
     },
     {
-      "id": "favourites", "enabled": true, "order": 40, "type": "featured", "label": "03 / In the spotlight",
+      "id": "favourites",
+      "enabled": true,
+      "order": 40,
+      "type": "featured",
+      "label": "03 / In the spotlight",
       "heading": "Golden on the outside.\nAll heart within.",
       "body": "Meet the inspiration behind our little food story: the samosa. Crisp pastry, a warmly spiced centre and a bright chutney moment.",
-      "image": "", "imageAlt": "", "buttonLabel": "Find your favourite", "buttonUrl": "square", "theme": "gold"
+      "buttonLabel": "Find your favourite",
+      "buttonUrl": "square",
+      "theme": "gold"
     },
     {
-      "id": "our-story", "enabled": true, "order": 50, "type": "story", "label": "04 / A little about us",
+      "id": "our-story",
+      "enabled": true,
+      "order": 50,
+      "type": "story",
+      "label": "04 / A little about us",
       "heading": "Rooted in flavour.\nMade for your day.",
       "body": "South Asian inspiration meets a modern appetite. Moon Foods brings warmth, colour and a little chilli spirit to the everyday.\n\n[Our founder’s story and kitchen philosophy are coming soon.]",
-      "image": "", "imageAlt": "", "buttonLabel": "", "buttonUrl": "", "theme": "navy"
+      "theme": "navy"
     },
     {
-      "id": "pickup-delivery", "enabled": true, "order": 60, "type": "service", "label": "05 / Your food, your way",
+      "id": "pickup-delivery",
+      "enabled": true,
+      "order": 60,
+      "type": "service",
+      "label": "05 / Your food, your way",
       "heading": "Good food.\nEasy plans.",
       "body": "Browse the live menu and choose an available pickup or delivery option on Square. Your order stays in one simple place.",
-      "image": "", "imageAlt": "", "buttonLabel": "Order Now", "buttonUrl": "square", "theme": "navy"
+      "buttonLabel": "Order Now",
+      "buttonUrl": "square",
+      "theme": "navy"
     },
     {
-      "id": "find-us", "enabled": true, "order": 70, "type": "location", "label": "06 / Meet us under the moon",
+      "id": "find-us",
+      "enabled": true,
+      "order": 70,
+      "type": "location",
+      "label": "06 / Meet us under the moon",
       "heading": "Follow the flavour.",
       "body": "Find our latest location details here before you head our way.",
-      "image": "", "imageAlt": "", "buttonLabel": "", "buttonUrl": "", "theme": "navy"
+      "theme": "navy"
     },
     {
-      "id": "one-more-bite", "enabled": true, "order": 80, "type": "cta", "label": "Your next good bite is calling",
+      "id": "one-more-bite",
+      "enabled": true,
+      "order": 80,
+      "type": "cta",
+      "label": "Your next good bite is calling",
       "heading": "A little hungry?\nWe thought so.",
       "body": "Take your craving to the menu. Square handles the rest.",
-      "image": "", "imageAlt": "", "buttonLabel": "Order Now", "buttonUrl": "square", "theme": "gold"
+      "buttonLabel": "Order Now",
+      "buttonUrl": "square",
+      "theme": "gold"
     }
   ]
 }
