@@ -47,7 +47,7 @@ Pages CMS becomes available **after this project is in a GitHub repository**; it
 4. Select the repository and its `main` branch.
 5. The root `.pages.yml` file creates **Business settings**, **Homepage sections**, **Food categories**, and the media library automatically.
 
-The hosted editor is free. GitHub permissions and app installation must be approved by the account owner. The actual hosted editor has not been connected or end-to-end tested because repository setup is deferred.
+The hosted editor is free. GitHub permissions and app installation must be approved by the account owner. The owner's CMS saves are connected to this repository and trigger the deployment workflow. Blank optional fields may be omitted by the CMS; the site safely supplies empty defaults for these fields.
 
 ## 4. Add, remove, hide or reorder homepage sections
 

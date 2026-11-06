@@ -1,10 +1,11 @@
 import { readFileSync, existsSync } from "node:fs";
 import { validateContent } from "../src/lib/content.mjs";
+import { normalizeBusiness, normalizeHomepage, normalizeFood } from '../src/lib/content-model.mjs';
 const read = (name) =>
   JSON.parse(readFileSync(`src/content/${name}.json`, "utf8"));
-const business = read("business"),
-  home = read("homepage"),
-  food = read("food");
+const business = normalizeBusiness(read("business")),
+  home = normalizeHomepage(read("homepage")),
+  food = normalizeFood(read("food"));
 const errors = validateContent(business, home, food);
 for (const item of [
   business.logo,

@@ -1,3 +1,5 @@
+import { normalizeBusiness, normalizeHomepage, normalizeFood } from './content-model.mjs';
+
 export const sectionTypes = [
   "hero",
   "intro",
@@ -21,6 +23,9 @@ export function isSquareReady(value) {
   return /^https:\/\//i.test(value || "") && !value.includes("[");
 }
 export function validateContent(business, homepage, food) {
+  business = normalizeBusiness(business);
+  homepage = normalizeHomepage(homepage);
+  food = normalizeFood(food);
   const errors = [];
   if (!business.name?.trim()) errors.push("Business name is required.");
   if (

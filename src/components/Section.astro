@@ -1,6 +1,5 @@
 ---
-import business from '../content/business.json';
-import food from '../content/food.json';
+import { business, food } from '../lib/site-content';
 import Media from './Media.astro';
 import { ordered, localUrl, isSquareReady } from '../lib/content.mjs';
 interface SectionData { id: string; enabled: boolean; order: number; type: string; label: string; heading: string; body: string; image: string; imageAlt: string; buttonLabel: string; buttonUrl: string; theme: string; }

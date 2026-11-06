@@ -1,5 +1,11 @@
 # Validation record
 
+## CMS publishing fix — 6 November 2026
+
+The owner's saved homepage edits reached `main`, but an overly strict test compared the CMS field list to the keys in a saved content item. Pages CMS omits blank optional fields, so the image fields disappeared and the test blocked publishing. Templates also inferred their types from individual JSON files, which could reject the same valid omissions.
+
+The site now uses a stable content model with defaults for absent/null optional fields and lists. Required values still fail validation when missing. Tests use independent fixtures for section/category operations and verify the CMS controls against the stable model, so adding/removing sections cannot invalidate the tests themselves. All 11 tests and the production Astro build pass with the owner's CMS-edited JSON preserved.
+
 Checked locally on 27 September 2026. No deployment was attempted after the owner requested local-only work.
 
 ## Passed
